@@ -17,7 +17,7 @@ def getVoice(request):
 def getTextVoice(request):
     if request.method == 'POST':
         text_data = request.POST['text_data']
-        s = SpeechText(file_name = text_data, uploaded_on = datetime.now())
+        s = SpeechText(text_data = text_data, uploaded_text_on = datetime.now())
         s.save()
         print('user text is saved')
         return HttpResponse('success')
