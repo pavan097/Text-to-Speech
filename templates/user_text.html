@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title> User Text Data </title>
+    </head>
+    <body>
+        <h2> Give Text  </h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label> Input Text : </label>  
+                <textarea rows="5" cols="40" name="text_data"></textarea>
+            </div>
+            <br>
+            <input type="submit">
+        </form>
+    </body>
+</html>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from text_speech.models import TextData
+from text_speech.models import TextData, SpeechText
 from datetime import datetime
 
 def getVoice(request):
@@ -13,3 +13,12 @@ def getVoice(request):
         return HttpResponse('success')
 
     return render(request, 'upload_data.html', {})
+
+def getTextVoice(request):
+    if request.method == 'POST':
+        text_data = request.POST['text_data']
+        s = SpeechText(file_name = text_data, uploaded_on = datetime.now())
+        s.save()
+        print('user text is saved')
+        return HttpResponse('success')
+    return render(request, 'user_text.html', {})
